@@ -20,8 +20,15 @@ import (
  */
 
 func sockMerchant(n int32, ar []int32) int32 {
-	// Write your code here
-
+	socks := make(map[int32]int, len(ar))
+	for _, sock := range ar {
+		socks[sock]++
+	}
+	pairCount := 0
+	for _, count := range socks {
+		pairCount += count / 2
+	}
+	return int32(pairCount)
 }
 
 func main() {
