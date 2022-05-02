@@ -1,15 +1,6 @@
 // https://www.hackerrank.com/challenges/counting-valleys/problem
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"strconv"
-	"strings"
-)
-
 /*
  * Complete the 'countingValleys' function below.
  *
@@ -36,6 +27,7 @@ func countingValleys(steps int32, path string) int32 {
 	return int32(valley)
 }
 
+/*
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
@@ -73,3 +65,4 @@ func checkError(err error) {
 		panic(err)
 	}
 }
+*/
