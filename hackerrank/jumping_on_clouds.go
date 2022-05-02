@@ -1,15 +1,6 @@
 // https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"strconv"
-	"strings"
-)
-
 /*
  * Complete the 'jumpingOnClouds' function below.
  *
@@ -33,6 +24,7 @@ func jumpingOnClouds(c []int32) int32 {
 	return int32(count)
 }
 
+/*
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
@@ -79,3 +71,4 @@ func checkError(err error) {
 		panic(err)
 	}
 }
+*/
