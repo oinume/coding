@@ -1,6 +1,10 @@
 // https://www.hackerrank.com/challenges/repeated-string/problem
 package main
 
+import (
+	"strings"
+)
+
 /*
  * Complete the 'repeatedString' function below.
  *
@@ -11,8 +15,29 @@ package main
  */
 
 func repeatedString(s string, n int64) int64 {
-	// Write your code here
-	return 0
+	/*
+		A = s の中にある`a`の数
+		X = n / len(s)
+		Y = n mod len(s)
+		として、A * X + Yにaが含まれている数を求める
+		example0: A=1, X=1000000000000, Y=0 -> 1 * 1000000000000 + 0
+		example: A=2, X=2, Y=0 -> 2 * 2 + 0
+		example1: A=2, X=3, Y=1 -> 2 * 3 + 1
+	*/
+	if len(s) == 0 {
+		return 0
+	}
+	a := strings.Count(s, "a")
+	x := n / int64(len(s))
+	y := n % int64(len(s))
+	if y == 0 {
+		return int64(a) * x
+	}
+	if int64(len(s)) < y {
+		return int64(a) * x
+	}
+	substr := s[0:y]
+	return int64(a)*x + int64(strings.Count(substr, "a"))
 }
 
 /*
