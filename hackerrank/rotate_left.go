@@ -1,3 +1,4 @@
+// https://www.hackerrank.com/challenges/array-left-rotation/problem
 package main
 
 /*
@@ -10,8 +11,17 @@ package main
  */
 
 func rotateLeft(d int32, arr []int32) []int32 {
-	// Write your code here
-	return nil
+	a := make([]int32, 0, len(arr))
+	rest := make([]int32, 0, len(arr))
+	for i, v := range arr {
+		if int32(i) < d {
+			rest = append(rest, v)
+		} else {
+			a = append(a, v)
+		}
+	}
+	a = append(a, rest...)
+	return a
 }
 
 /*
