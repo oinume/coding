@@ -15,15 +15,6 @@ import (
  */
 
 func repeatedString(s string, n int64) int64 {
-	/*
-		A = s の中にある`a`の数
-		X = n / len(s)
-		Y = n mod len(s)
-		として、A * X + Yにaが含まれている数を求める
-		example0: A=1, X=1000000000000, Y=0 -> 1 * 1000000000000 + 0
-		example: A=2, X=2, Y=0 -> 2 * 2 + 0
-		example1: A=2, X=3, Y=1 -> 2 * 3 + 1
-	*/
 	if len(s) == 0 {
 		return 0
 	}
