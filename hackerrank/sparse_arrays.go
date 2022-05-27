@@ -6,14 +6,26 @@ package main
  *
  * The function is expected to return an INTEGER_ARRAY.
  * The function accepts following parameters:
- *  1. STRING_ARRAY strings
+ *  1. STRING_ARRAY strs
  *  2. STRING_ARRAY queries
  */
 
-func matchingStrings(array []string, queries []string) []int32 {
-	return nil
-	// Write your code here
+func matchingStrings(strs []string, queries []string) []int32 {
+	strsCount := make(map[string]int32, len(strs))
+	for _, str := range strs {
+		strsCount[str]++
+	}
 
+	counts := make([]int32, len(queries))
+	for i, query := range queries {
+		count, ok := strsCount[query]
+		if ok {
+			counts[i] = count
+		} else {
+			counts[i] = 0
+		}
+	}
+	return counts
 }
 
 /*
