@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/sparse-arrays/problem
-package main
+package arrays
 
 /*
  * Complete the 'matchingStrings' function below.
