@@ -1,15 +1,6 @@
 // https://www.hackerrank.com/challenges/two-strings/problem
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"strconv"
-	"strings"
-)
-
 /*
  * Complete the 'twoStrings' function below.
  *
@@ -20,10 +11,20 @@ import (
  */
 
 func twoStrings(s1 string, s2 string) string {
-	// Write your code here
-	return ""
+	r1, r2 := []rune(s1), []rune(s2)
+	m := make(map[rune]struct{}, len(r1))
+	for _, char := range r1 {
+		m[char] = struct{}{}
+	}
+	for _, char := range r2 {
+		if _, ok := m[char]; ok {
+			return "YES"
+		}
+	}
+	return "NO"
 }
 
+/*
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
@@ -65,3 +66,4 @@ func checkError(err error) {
 		panic(err)
 	}
 }
+*/
