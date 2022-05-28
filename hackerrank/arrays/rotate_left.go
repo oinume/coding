@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/array-left-rotation/problem
-package arrays
+package main
 
 /*
  * Complete the 'rotateLeft' function below.
