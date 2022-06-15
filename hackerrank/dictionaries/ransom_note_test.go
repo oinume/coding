@@ -17,6 +17,24 @@ func TestCheckMagazine(t *testing.T) {
 			},
 			want: "Yes",
 		},
+		"sample1": {
+			magazine: []string{
+				"two", "times", "three", "is", "not", "four",
+			},
+			note: []string{
+				"two", "times", "two", "is", "four",
+			},
+			want: "No",
+		},
+		"sample2": {
+			magazine: []string{
+				"ive", "got", "a", "lovely", "bunch", "of", "coconuts",
+			},
+			note: []string{
+				"ive", "got", "some", "coconuts",
+			},
+			want: "No",
+		},
 	}
 	for name, test := range tests {
 		t.Run(name, func(t *testing.T) {
