@@ -1,0 +1,39 @@
+name: ci
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GOPATH: /home/runner/work/go
+    steps:
+      - uses: actions/checkout@v3
+#      - uses: actions/cache@v3
+#        id: cache
+#        with:
+#          path: ${{ env.GOPATH }}/pkg/mod
+#          key: ${{ runner.os }}-${{ hashFiles('**/go.sum') }}
+#          restore-keys: |
+#            ${{ runner.os }}-go-
+      - uses: actions/setup-go@v4
+        with:
+          go-version-file: "go.mod"
+          cache-dependency-path: "go.sum"
+#      - name: Run lint
+#        run: |
+#          make lint
+      - name: Run test
+        run: |
+          go test -v ./...
+#      - name: Upload coverage to codecov
+#        uses: codecov/codecov-action@a1ed4b322b4b38cb846afb5a0ebfa17086917d27
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          file: ./coverage.txt
+#          fail_ci_if_error: false
