@@ -14,17 +14,22 @@ jobs:
       GOPATH: /home/runner/work/go
     steps:
       - uses: actions/checkout@v3
-#      - uses: actions/cache@v3
-#        id: cache
+#      - uses: styfle/cancel-workflow-action@0.11.0
 #        with:
-#          path: ${{ env.GOPATH }}/pkg/mod
-#          key: ${{ runner.os }}-${{ hashFiles('**/go.sum') }}
-#          restore-keys: |
-#            ${{ runner.os }}-go-
-      - uses: actions/setup-go@v4
+#          access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/cache@v3
         with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-test-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-test
+      - id: go
+        uses: actions/setup-go@v4
+        with:
+          cache: false
           go-version-file: "go.mod"
-          cache-dependency-path: "go.sum"
 #      - name: Run lint
 #        run: |
 #          make lint
