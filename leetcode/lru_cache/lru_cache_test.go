@@ -3,7 +3,7 @@ package lru_cache_test
 import (
 	"testing"
 
-	"github.com/oinume/leetcode/lru_cache"
+	"github.com/oinume/coding-challenge/leetcode/lru_cache"
 )
 
 //LRUCache cache = new LRUCache( 2 /* capacity */ );
