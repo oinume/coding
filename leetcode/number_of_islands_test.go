@@ -1,6 +1,9 @@
-package number_of_islands
+package leetcode
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 /*
 Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
@@ -63,4 +66,37 @@ func dfs(grid [][]byte, i, j int) int {
 
 	fmt.Printf("finish, ")
 	return 1
+}
+
+func TestNumIslands(t *testing.T) {
+	tests := map[string]struct {
+		input [][]byte
+		want  int
+	}{
+		"example1": {
+			input: [][]byte{
+				{'1', '1', '1', '1', '0'},
+				{'1', '1', '0', '1', '0'},
+				{'1', '1', '0', '0', '0'},
+				{'0', '0', '0', '0', '0'},
+			},
+			want: 1,
+		},
+		"example2": {
+			input: [][]byte{
+				{'1', '1', '0', '0', '0'},
+				{'1', '1', '0', '0', '0'},
+				{'0', '0', '1', '0', '0'},
+				{'0', '0', '0', '1', '1'},
+			},
+			want: 3,
+		},
+	}
+	for name, test := range tests {
+		t.Run(name, func(t *testing.T) {
+			if got := numIslands(test.input); got != test.want {
+				t.Errorf("numIslands: got=%v, want=%v", got, test.want)
+			}
+		})
+	}
 }
